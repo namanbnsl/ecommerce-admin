@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate:pg",
     "db:deploy": "node ./drizzle/migrator.mjs"
   },
@@ -27,6 +28,7 @@
     "next": "13.4.9",
     "next-auth": "^4.22.1",
     "nodemailer": "^6.9.3",
+    "pg": "^8.11.1",
     "postcss": "8.4.25",
     "postgres": "^3.3.5",
     "react": "18.2.0",
