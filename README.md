@@ -10,7 +10,7 @@ You will need to [install docker](https://www.docker.com/) on your local machine
 
 ### Installation
 
-To get started with Code Racer locally, follow these steps
+To get started with Ecommerce Admin locally, follow these steps
 
 1. Get a local copy of your repo
    ```sh
