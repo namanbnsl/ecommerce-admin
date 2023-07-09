@@ -4,6 +4,7 @@ import NextAuth, { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
 import { env } from "@/env";
+import { sendVerificationRequest } from "@/lib/custom-email";
 
 export const authOptions: AuthOptions = {
   adapter: pgDrizzleAdapter(db),
@@ -15,13 +16,14 @@ export const authOptions: AuthOptions = {
     EmailProvider({
       server: {
         host: env.EMAIL_SERVER_HOST,
-        port: env.EMAIL_SERVER_PORT,
+        port: parseFloat(env.EMAIL_SERVER_PORT),
         auth: {
           user: env.EMAIL_SERVER_USER,
           pass: env.EMAIL_SERVER_PASSWORD,
         },
       },
       from: env.EMAIL_FROM,
+      sendVerificationRequest: sendVerificationRequest,
     }),
   ],
 };

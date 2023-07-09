@@ -59,7 +59,7 @@ If you want to work on a new feature, follow these steps.
 
 ### Pulling in changes from upstream
 
-You should pull in the changes that we add in daily, preferably before you checkout a new branch to do new work.
+You should pull in the changes that we add, preferably before you checkout a new branch to do new work.
 
 1. git checkout main
 2. git pull upstream main
