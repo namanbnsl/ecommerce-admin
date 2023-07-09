@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ecommerce Admin
 
-## Getting Started
+An easy way to build ecommerce stores fast.
 
-First, run the development server:
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You will need to [install docker](https://www.docker.com/) on your local machine.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Installation
 
-## Learn More
+To get started with Code Racer locally, follow these steps
 
-To learn more about Next.js, take a look at the following resources:
+1. Get a local copy of your repo
+   ```sh
+    git clone https://github.com/coding1101/ecommerce-admin
+   ```
+2. Navigate to the project directory
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```sh
+   cd ecommerce-admin
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install NPM packages(We suggest using `pnpm`)
+   ```sh
+   pnpm install
+   ```
+4. Start a docker container for the database.
+   ```sh
+   docker-compose up
+   ```
+5. Copy `.env.example` file and rename it to `.env` and edit the values. Keep the `DATABASE_URL` the same unless you changed the `docker-compose.yml` file.
 
-## Deploy on Vercel
+6. Once your database is ready, push your schema to the database.
+   ```sh
+   pnpm db:deploy
+   ```
+7. Finally start your dev server.
+   ```sh
+   pnpm dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open your browser and visit http://localhost:3000 to see the application running.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## How to Contribute
+
+### Working on New Features
+
+If you want to work on a new feature, follow these steps.
+
+1. fork the repo
+2. clone your fork
+3. checkout a new branch
+4. do you work,
+5. commit
+6. push your branch to your fork
+7. go into github UI and create a PR from your fork & branch, and merge it into upstream MAIN
+
+### Pulling in changes from upstream
+
+You should pull in the changes that we add in daily, preferably before you checkout a new branch to do new work.
+
+1. git checkout main
+2. git pull upstream main

@@ -1,3 +1,5 @@
+// Credits to PR next-auth/drizzle-adapter
+
 import { Adapter } from "next-auth/adapters";
 import { db } from "./db";
 import { accounts, sessions, users, verificationTokens } from "@/db/schema";
