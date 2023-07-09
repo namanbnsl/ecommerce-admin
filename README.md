@@ -2,8 +2,6 @@
 
 An easy way to build ecommerce stores fast.
 
-<br>
-
 # Getting Started
 
 ### Prerequisites
