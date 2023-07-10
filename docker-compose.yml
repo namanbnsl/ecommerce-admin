@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  bg-db:
+  admin-db:
     image: postgres
     restart: always
     container_name: ecommerce-admin-postgres

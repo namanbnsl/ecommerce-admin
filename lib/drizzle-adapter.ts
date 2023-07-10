@@ -7,11 +7,10 @@ import { eq, and } from "drizzle-orm";
 
 export const defaultSchema = { users, accounts, sessions, verificationTokens };
 export type DefaultSchema = typeof defaultSchema;
-interface CustomSchema extends DefaultSchema {}
 
 export function pgDrizzleAdapter(
   client: typeof db,
-  schema?: Partial<CustomSchema>
+  schema?: Partial<DefaultSchema>
 ): Adapter {
   const { users, accounts, sessions, verificationTokens } = {
     users: schema?.users ?? defaultSchema.users,

@@ -21,15 +21,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <AuthContext>
+    <AuthContext>
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <meta name="referrer" content="no-referrer" />
+        </head>
         <body className={poppins.className}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Toaster />
             {children}
+
+            <Toaster />
           </ThemeProvider>
         </body>
-      </AuthContext>
-    </html>
+      </html>
+    </AuthContext>
   );
 }

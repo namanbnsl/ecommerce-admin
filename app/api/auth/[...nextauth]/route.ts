@@ -11,7 +11,7 @@ export const authOptions: AuthOptions = {
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET!,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
     EmailProvider({
       server: {
