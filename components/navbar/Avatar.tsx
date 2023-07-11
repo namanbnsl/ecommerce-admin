@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { signOut } from "next-auth/react";
+  DropdownMenuTrigger
+} from '../ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { signOut } from 'next-auth/react';
 
 export function UserAvatar({ url, name }: { url: string; name: string }) {
   return (

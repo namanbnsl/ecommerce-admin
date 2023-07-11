@@ -1,6 +1,6 @@
-import { Theme } from "next-auth";
-import { SendVerificationRequestParams } from "next-auth/providers";
-import { createTransport } from "nodemailer";
+import { Theme } from 'next-auth';
+import { SendVerificationRequestParams } from 'next-auth/providers';
+import { createTransport } from 'nodemailer';
 
 export async function sendVerificationRequest(
   params: SendVerificationRequestParams
@@ -15,11 +15,11 @@ export async function sendVerificationRequest(
     from: provider.from,
     subject: `Sign in to ${host}`,
     text: text({ url, host }),
-    html: html({ url, host, theme }),
+    html: html({ url, host, theme })
   });
   const failed = result.rejected.concat(result.pending).filter(Boolean);
   if (failed.length) {
-    throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`);
+    throw new Error(`Email(s) (${failed.join(', ')}) could not be sent`);
   }
 }
 

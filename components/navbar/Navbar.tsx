@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { ModeToggle } from "./ModeToggle";
-import { UserAvatar } from "./Avatar";
-import { Icons } from "../ui/icons";
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { ModeToggle } from './ModeToggle';
+import { UserAvatar } from './Avatar';
+import { Icons } from '../ui/icons';
 
 const Navbar = () => {
   const links = [
     {
-      name: "Dashboard",
-      href: "/",
-    },
+      name: 'Dashboard',
+      href: '/'
+    }
   ];
 
   const session = useSession();
@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="flex h-20 border-b justify-between items-center px-10">
       <Link
-        href={"/"}
+        href={'/'}
         className="underline font-bold hover:text-muted-foreground"
       >
         admin dashboard
@@ -40,10 +40,10 @@ const Navbar = () => {
       <div className="flex gap-x-4 justify-center items-center">
         <ModeToggle />
 
-        {session.status === "loading" && (
+        {session.status === 'loading' && (
           <Icons.spinner className="mr-2 h-6 w-6 animate-spin" />
         )}
-        {session.status !== "loading" && (
+        {session.status !== 'loading' && (
           <UserAvatar
             url={session.data?.user?.image!}
             name={session.data?.user?.name!}

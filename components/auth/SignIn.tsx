@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import OAuthForm from "./OAuthForm";
+import OAuthForm from './OAuthForm';
 
 const SignIn = () => {
   return (

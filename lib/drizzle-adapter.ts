@@ -1,9 +1,9 @@
 // Credits to PR next-auth/drizzle-adapter
 
-import { Adapter } from "next-auth/adapters";
-import { db } from "./db";
-import { accounts, sessions, users, verificationTokens } from "@/db/schema";
-import { eq, and } from "drizzle-orm";
+import { Adapter } from 'next-auth/adapters';
+import { db } from './db';
+import { accounts, sessions, users, verificationTokens } from '@/db/schema';
+import { eq, and } from 'drizzle-orm';
 
 export const defaultSchema = { users, accounts, sessions, verificationTokens };
 export type DefaultSchema = typeof defaultSchema;
@@ -17,7 +17,7 @@ export function pgDrizzleAdapter(
     accounts: schema?.accounts ?? defaultSchema.accounts,
     sessions: schema?.sessions ?? defaultSchema.sessions,
     verificationTokens:
-      schema?.verificationTokens ?? defaultSchema.verificationTokens,
+      schema?.verificationTokens ?? defaultSchema.verificationTokens
   };
 
   return {
@@ -58,7 +58,7 @@ export function pgDrizzleAdapter(
         client
           .select({
             session: sessions,
-            user: users,
+            user: users
           })
           .from(sessions)
           .where(eq(sessions.sessionToken, data))
@@ -68,7 +68,7 @@ export function pgDrizzleAdapter(
     },
     updateUser: async (data) => {
       if (!data.id) {
-        throw new Error("No user id.");
+        throw new Error('No user id.');
       }
 
       return client
@@ -103,7 +103,7 @@ export function pgDrizzleAdapter(
         refresh_token: updatedAccount.refresh_token ?? undefined,
         scope: updatedAccount.scope ?? undefined,
         expires_at: updatedAccount.expires_at ?? undefined,
-        session_state: updatedAccount.session_state ?? undefined,
+        session_state: updatedAccount.session_state ?? undefined
       };
 
       return account;
@@ -156,7 +156,7 @@ export function pgDrizzleAdapter(
             .then((res) => res[0]) ?? null
         );
       } catch (err) {
-        throw new Error("No verification token found.");
+        throw new Error('No verification token found.');
       }
     },
     deleteUser: async (id) => {
@@ -179,6 +179,6 @@ export function pgDrizzleAdapter(
         .then((res) => res[0] ?? null);
 
       return { provider, type, providerAccountId, userId };
-    },
+    }
   };
 }

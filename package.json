@@ -10,6 +10,7 @@
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate:pg",
     "db:deploy": "node ./drizzle/migrator.mjs",
+    "format": "prettier --write .",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -60,7 +61,10 @@
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "drizzle-kit": "^0.19.3",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "husky": "^8.0.3"
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.0"
   }
 }

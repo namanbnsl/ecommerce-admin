@@ -1,8 +1,8 @@
-import { createEnv } from "@t3-oss/env-core";
-import { z } from "zod";
+import { createEnv } from '@t3-oss/env-core';
+import { z } from 'zod';
 
 export const env = createEnv({
-  clientPrefix: "NEXT_PUBLIC_",
+  clientPrefix: 'NEXT_PUBLIC_',
   server: {
     NEXTAUTH_URL: z.string().url().optional(),
     NEXTAUTH_SECRET: z.string().min(1),
@@ -16,10 +16,10 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: z.string().min(1),
     BASIC_PLAN_PRICE_ID: z.string().min(5),
     PRO_PLAN_PRICE_ID: z.string().min(5),
-    STRIPE_SECRET_KEY: z.string().min(7),
+    STRIPE_SECRET_KEY: z.string().min(7)
   },
   client: {
-    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(7),
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(7)
   },
   runtimeEnv: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
@@ -36,6 +36,6 @@ export const env = createEnv({
     PRO_PLAN_PRICE_ID: process.env.PRO_PLAN_PRICE_ID,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-  },
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  }
 });

@@ -1,10 +1,10 @@
-import { users } from "@/db/schema";
-import { stripe } from "@/lib/stripe";
-import { eq } from "drizzle-orm";
-import { getServerSession } from "next-auth";
-import { NextResponse } from "next/server";
-import { authOptions } from "../auth/[...nextauth]/route";
-import { db } from "@/lib/db";
+import { users } from '@/db/schema';
+import { stripe } from '@/lib/stripe';
+import { eq } from 'drizzle-orm';
+import { getServerSession } from 'next-auth';
+import { NextResponse } from 'next/server';
+import { authOptions } from '../auth/[...nextauth]/route';
+import { db } from '@/lib/db';
 
 export async function POST(request: Request) {
   const { priceId } = await request.json();
@@ -28,10 +28,10 @@ export async function POST(request: Request) {
         name: string;
       } = {
         metadata: {
-          email: user_session?.user?.email as string,
+          email: user_session?.user?.email as string
         },
         name: user_session?.user?.name as string,
-        email: user_session?.user?.email as string,
+        email: user_session?.user?.email as string
       };
 
       const customer = await stripe.customers.create(customer_data);
@@ -45,25 +45,25 @@ export async function POST(request: Request) {
     }
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      billing_address_collection: "required",
-      mode: "subscription",
+      payment_method_types: ['card'],
+      billing_address_collection: 'required',
+      mode: 'subscription',
       customer: customerId,
       line_items: [
         {
           price: priceId,
-          quantity: 1,
-        },
+          quantity: 1
+        }
       ],
       allow_promotion_codes: true,
       success_url: `http://localhost:3000/`,
-      cancel_url: `http://localhost:3000/`,
+      cancel_url: `http://localhost:3000/`
     });
 
     return NextResponse.json({ sessionId: session.id });
   } catch (err) {
     if (err instanceof Error) err = err;
     console.log(err);
-    return new NextResponse("Internal Error", { status: 500 });
+    return new NextResponse('Internal Error', { status: 500 });
   }
 }

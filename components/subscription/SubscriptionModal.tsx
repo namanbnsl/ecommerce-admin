@@ -1,5 +1,5 @@
-import { env } from "@/env";
-import Plan from "./Plan";
+import { env } from '@/env';
+import Plan from './Plan';
 
 const SubscriptionModal = () => {
   return (

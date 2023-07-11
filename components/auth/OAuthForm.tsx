@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Form,
@@ -6,31 +6,31 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
-import { AiOutlineGoogle } from "react-icons/ai";
-import { Button } from "../ui/button";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useToast } from "../ui/use-toast";
-import { useState } from "react";
-import { Icons } from "../ui/icons";
-import { signIn } from "next-auth/react";
+  FormMessage
+} from '../ui/form';
+import { Input } from '../ui/input';
+import { AiOutlineGoogle } from 'react-icons/ai';
+import { Button } from '../ui/button';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useToast } from '../ui/use-toast';
+import { useState } from 'react';
+import { Icons } from '../ui/icons';
+import { signIn } from 'next-auth/react';
 
 const OAuthForm = () => {
   const formSchema = z.object({
     email: z.string().min(3, {
-      message: "Invalid Email.",
-    }),
+      message: 'Invalid Email.'
+    })
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-    },
+      email: ''
+    }
   });
 
   const { toast } = useToast();
@@ -41,25 +41,25 @@ const OAuthForm = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setEmailLoading(true);
 
-    const signInResult = await signIn("email", {
+    const signInResult = await signIn('email', {
       email: values.email.toLowerCase(),
-      redirect: false,
+      redirect: false
     });
 
     setEmailLoading(false);
 
     if (!signInResult?.ok) {
       return toast({
-        title: "Something went wrong.",
-        description: "Your sign in request failed. Please try again.",
-        variant: "destructive",
+        title: 'Something went wrong.',
+        description: 'Your sign in request failed. Please try again.',
+        variant: 'destructive'
       });
     }
 
     return toast({
-      title: "Email verification link sent.",
+      title: 'Email verification link sent.',
       description:
-        "We have sent the link to your email. Make sure to check spam too.",
+        'We have sent the link to your email. Make sure to check spam too.'
     });
   };
 
@@ -113,12 +113,12 @@ const OAuthForm = () => {
         <Button
           type="button"
           className="w-full"
-          variant={"outline"}
+          variant={'outline'}
           disabled={googleLoading}
           onClick={() => {
             setGoogleLoading(true);
 
-            signIn("google");
+            signIn('google');
 
             setGoogleLoading(false);
           }}

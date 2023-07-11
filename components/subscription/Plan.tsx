@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Card,
@@ -6,13 +6,13 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from "../ui/card";
-import { Button } from "../ui/button";
-import axios from "axios";
-import { getStripe } from "@/lib/stripeClient";
-import { useState } from "react";
-import { Icons } from "../ui/icons";
+  CardTitle
+} from '../ui/card';
+import { Button } from '../ui/button';
+import axios from 'axios';
+import { getStripe } from '@/lib/stripeClient';
+import { useState } from 'react';
+import { Icons } from '../ui/icons';
 
 interface Props {
   name: string;
@@ -41,12 +41,12 @@ const Plan = ({ name, price, priceId }: Props) => {
 
               const { data }: { data: { sessionId: string } } =
                 await axios.post(
-                  "/api/stripe",
+                  '/api/stripe',
                   { priceId: priceId },
                   {
                     headers: {
-                      "Content-Type": "application/json",
-                    },
+                      'Content-Type': 'application/json'
+                    }
                   }
                 );
 
