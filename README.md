@@ -40,6 +40,10 @@ To get started with Ecommerce Admin locally, follow these steps
    ```sh
    pnpm dev
    ```
+8. To view the database
+   ```sh
+   pnpm db:studio
+   ```
 
 Open your browser and visit http://localhost:3000 to see the application running.
 
