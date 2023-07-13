@@ -8,6 +8,7 @@ import {
 } from '../ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { signOut } from 'next-auth/react';
+import { LogOut } from 'lucide-react';
 
 export function UserAvatar({ url, name }: { url: string; name: string }) {
   return (
@@ -19,7 +20,13 @@ export function UserAvatar({ url, name }: { url: string; name: string }) {
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => signOut()}
+          className="hover:cursor-pointer"
+        >
+          Logout
+          <LogOut className="w-h h-4" />
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

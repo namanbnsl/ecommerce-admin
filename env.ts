@@ -16,7 +16,8 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: z.string().min(1),
     BASIC_PLAN_PRICE_ID: z.string().min(5),
     PRO_PLAN_PRICE_ID: z.string().min(5),
-    STRIPE_SECRET_KEY: z.string().min(7)
+    STRIPE_SECRET_KEY: z.string().min(7),
+    STRIPE_WEBHOOK_SECRET: z.string().min(5)
   },
   client: {
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(7)
@@ -35,6 +36,7 @@ export const env = createEnv({
     BASIC_PLAN_PRICE_ID: process.env.BASIC_PLAN_PRICE_ID,
     PRO_PLAN_PRICE_ID: process.env.PRO_PLAN_PRICE_ID,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
   }
