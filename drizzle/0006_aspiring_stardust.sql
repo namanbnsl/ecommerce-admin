@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS "store_userId_index";

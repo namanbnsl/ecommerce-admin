@@ -7,10 +7,16 @@ import { UserAvatar } from './Avatar';
 import { Icons } from '../ui/icons';
 
 const Navbar = () => {
-  const links = [
+  type TLinks = { name: string; href: string }[];
+
+  const links: TLinks = [
     {
       name: 'Dashboard',
       href: '/'
+    },
+    {
+      name: 'Products',
+      href: '/products'
     }
   ];
 
@@ -25,7 +31,7 @@ const Navbar = () => {
         admin dashboard
       </Link>
 
-      <div>
+      <div className="gap-x-4 flex">
         {links.map((link) => (
           <Link
             key={link.name}

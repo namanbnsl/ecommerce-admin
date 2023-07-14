@@ -22,6 +22,27 @@
       "when": 1689079089734,
       "tag": "0002_swift_devos",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1689255106451,
+      "tag": "0003_mushy_rocket_racer",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1689340019395,
+      "tag": "0005_adorable_ender_wiggin",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1689346712577,
+      "tag": "0006_aspiring_stardust",
+      "breakpoints": true
     }
   ]
 }

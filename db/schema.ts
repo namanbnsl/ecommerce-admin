@@ -1,10 +1,12 @@
+import { relations } from 'drizzle-orm';
 import {
   integer,
   timestamp,
   pgTable,
   text,
   primaryKey,
-  boolean
+  boolean,
+  uniqueIndex
 } from 'drizzle-orm/pg-core';
 import { AdapterAccount } from 'next-auth/adapters';
 
@@ -59,3 +61,16 @@ export const verificationTokens = pgTable(
     compoundKey: primaryKey(vt.identifier, vt.token)
   })
 );
+
+export const store = pgTable('store', {
+  id: text('id').notNull().primaryKey(),
+  name: text('name'),
+  userId: text('userId').references(() => users.id)
+});
+
+export const userToStore = relations(users, ({ one }) => ({
+  store: one(store, {
+    fields: [users.id],
+    references: [store.userId]
+  })
+}));
